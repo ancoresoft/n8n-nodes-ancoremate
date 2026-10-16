@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-ancoremate",
-  "version": "1.23.9",
+  "version": "1.23.10",
   "description": "n8n nodes for Qlik Cloud® automation by ancoreSoft. Qlik®, Qlik Cloud® and Qlik Sense® are trademarks of QlikTech International AB. ancoreMate is not affiliated with or endorsed by Qlik.",
   "keywords": [
     "n8n-community-node-package",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ancoreSoft-Christian-Eckler/n8n-nodes-ancoremate.git"
+    "url": "https://github.com/ancoresoft/n8n-nodes-ancoremate.git"
   },
   "engines": {
     "node": ">=20.15"
