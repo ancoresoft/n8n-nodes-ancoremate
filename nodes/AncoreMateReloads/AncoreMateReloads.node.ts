@@ -456,7 +456,7 @@ export class AncoreMateReloads implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Reloads",
 		"name": "ancoreMateReloads",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],

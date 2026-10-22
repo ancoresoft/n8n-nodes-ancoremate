@@ -12,7 +12,7 @@ export class AncoreMateOAuth2Api implements ICredentialType {
 
 	displayName = 'ancoreMate OAuth2 API';
 
-	icon: Icon = 'file:ancoremate.svg';
+	icon: Icon = { light: 'file:ancoremate.svg', dark: 'file:ancoremate.dark.svg' };
 
 	documentationUrl = 'https://docs.ancoresoft.com/';
 

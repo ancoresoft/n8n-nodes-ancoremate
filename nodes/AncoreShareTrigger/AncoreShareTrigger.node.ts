@@ -30,7 +30,7 @@ export class AncoreShareTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate ancoreShare Reports Trigger",
 		"name": "ancoreShareTrigger",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"trigger"
 		],

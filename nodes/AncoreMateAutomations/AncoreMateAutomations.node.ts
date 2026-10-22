@@ -543,7 +543,7 @@ export class AncoreMateAutomations implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Automations",
 		"name": "ancoreMateAutomations",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],

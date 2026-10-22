@@ -62,6 +62,14 @@ Each node covers one area of Qlik Cloud. Choose the resource and the operation; 
 - Support: support@ancoresoft.com
 - Qlik Cloud REST API: https://qlik.dev/apis/
 
+## Legal
+
+The source code of these nodes is licensed under the MIT License.
+Use of the ancoreMate service is governed by the
+[ancoreMate EULA](https://ancoresoft.com/legal/ancoremate/eula/) and the
+[Terms of Service](https://ancoresoft.com/legal/terms/).
+Privacy: [ancoreMate Privacy Policy](https://ancoresoft.com/legal/ancoremate/privacy/)
+
 ## Nodes
 
 ### ancoreMate Apps

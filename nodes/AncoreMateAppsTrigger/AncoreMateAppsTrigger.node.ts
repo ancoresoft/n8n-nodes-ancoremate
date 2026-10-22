@@ -48,7 +48,7 @@ export class AncoreMateAppsTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Apps Trigger",
 		"name": "ancoreMateAppsTrigger",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"trigger"
 		],

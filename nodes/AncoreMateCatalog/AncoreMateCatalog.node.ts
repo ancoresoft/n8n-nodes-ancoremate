@@ -1315,7 +1315,7 @@ export class AncoreMateCatalog implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Catalog",
 		"name": "ancoreMateCatalog",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],

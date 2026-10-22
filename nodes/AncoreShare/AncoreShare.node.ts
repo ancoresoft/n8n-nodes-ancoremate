@@ -237,7 +237,7 @@ export class AncoreShare implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate ancoreShare Reports",
 		"name": "ancoreShare",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],

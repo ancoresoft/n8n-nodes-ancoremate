@@ -29,7 +29,7 @@ export class AncoreMateReloadsTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Reloads Trigger",
 		"name": "ancoreMateReloadsTrigger",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"trigger"
 		],

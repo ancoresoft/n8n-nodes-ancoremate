@@ -1063,7 +1063,7 @@ export class AncoreMateAppData implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate App Data",
 		"name": "ancoreMateAppData",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],

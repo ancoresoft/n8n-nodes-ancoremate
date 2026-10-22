@@ -813,7 +813,7 @@ export class AncoreMateContent implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Content",
 		"name": "ancoreMateContent",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],

@@ -660,7 +660,7 @@ export class AncoreMateSpacesAndAccess implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Spaces and Access",
 		"name": "ancoreMateSpacesAndAccess",
-		"icon": "file:ancoremate.svg",
+		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
 		"group": [
 			"transform"
 		],
