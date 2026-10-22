@@ -12,7 +12,7 @@ import { NodeConnectionTypes } from 'n8n-workflow';
 import { createSubscription, deleteSubscription, eventData, loadOptions, type TriggerSpec } from '../shared/runtime';
 
 const BASE_URL = 'https://ancorecloud.com/ancoremate';
-const CLIENT = 'n8n/1.23.10';
+const CLIENT = 'n8n/1.23.11';
 
 const EVENTS: Record<string, TriggerSpec> = {
 	"whenAncoreShareReportFinished": {
@@ -30,7 +30,10 @@ export class AncoreShareTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate ancoreShare Reports Trigger",
 		"name": "ancoreShareTrigger",
-		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
+		"icon": {
+			"light": "file:ancoremate.svg",
+			"dark": "file:ancoremate.dark.svg"
+		},
 		"group": [
 			"trigger"
 		],

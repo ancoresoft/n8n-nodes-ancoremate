@@ -11,7 +11,7 @@ import { NodeConnectionTypes } from 'n8n-workflow';
 import { loadOptions, runOperations, type OperationSpec } from '../shared/runtime';
 
 const BASE_URL = 'https://ancorecloud.com/ancoremate';
-const CLIENT = 'n8n/1.23.10';
+const CLIENT = 'n8n/1.23.11';
 
 const OPERATIONS: Record<string, OperationSpec> = {
 	"getQlikConnection": {
@@ -456,7 +456,10 @@ export class AncoreMateReloads implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate Reloads",
 		"name": "ancoreMateReloads",
-		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
+		"icon": {
+			"light": "file:ancoremate.svg",
+			"dark": "file:ancoremate.dark.svg"
+		},
 		"group": [
 			"transform"
 		],

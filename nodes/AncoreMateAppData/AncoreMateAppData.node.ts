@@ -11,7 +11,7 @@ import { NodeConnectionTypes } from 'n8n-workflow';
 import { loadOptions, runOperations, type OperationSpec } from '../shared/runtime';
 
 const BASE_URL = 'https://ancorecloud.com/ancoremate';
-const CLIENT = 'n8n/1.23.10';
+const CLIENT = 'n8n/1.23.11';
 
 const OPERATIONS: Record<string, OperationSpec> = {
 	"createBookmark": {
@@ -1063,7 +1063,10 @@ export class AncoreMateAppData implements INodeType {
 	description: INodeTypeDescription = {
 		"displayName": "ancoreMate App Data",
 		"name": "ancoreMateAppData",
-		"icon": { "light": "file:ancoremate.svg", "dark": "file:ancoremate.dark.svg" },
+		"icon": {
+			"light": "file:ancoremate.svg",
+			"dark": "file:ancoremate.dark.svg"
+		},
 		"group": [
 			"transform"
 		],
