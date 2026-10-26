@@ -452,14 +452,19 @@ export async function createSubscription(
 
 export async function deleteSubscription(this: IHookFunctions, baseUrl: string, client: string): Promise<boolean> {
 	const data = this.getWorkflowStaticData('node');
-	if (typeof data.subscriptionUrl === 'string' && data.subscriptionUrl.startsWith(baseUrl + '/')) {
+	const subscriptionUrl = data.subscriptionUrl;
+	// The local state is cleared first: otherwise checkExists would report the trigger as registered on the next
+	// activation and n8n would not register it again (n8n review 2026-10-26). ancoreMate also ends a trigger whose
+	// deliveries are no longer accepted.
+	delete data.subscriptionUrl;
+	if (typeof subscriptionUrl === 'string' && subscriptionUrl.startsWith(baseUrl + '/')) {
 		try {
-			await request.call(this, client, 'DELETE', data.subscriptionUrl, {});
-		} catch {
+			await request.call(this, client, 'DELETE', subscriptionUrl, {});
+		} catch (error) {
+			this.logger.warn(`ancoreMate: the trigger subscription could not be deleted: ${(error as Error).message}`);
 			return false;
 		}
 	}
-	delete data.subscriptionUrl;
 	return true;
 }
 

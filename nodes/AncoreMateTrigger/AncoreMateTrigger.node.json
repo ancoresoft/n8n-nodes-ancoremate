@@ -1,5 +1,5 @@
 {
-  "node": "n8n-nodes-ancoremate.ancoreMateContent",
+  "node": "n8n-nodes-ancoremate.ancoreMateTrigger",
   "nodeVersion": "1.0",
   "codexVersion": "1.0",
   "categories": [

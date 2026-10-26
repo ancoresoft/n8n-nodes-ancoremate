@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-ancoremate",
-  "version": "1.23.11",
+  "version": "1.24.0",
   "description": "n8n nodes for Qlik Cloud® automation by ancoreSoft. Qlik®, Qlik Cloud® and Qlik Sense® are trademarks of QlikTech International AB. ancoreMate is not affiliated with or endorsed by Qlik.",
   "keywords": [
     "n8n-community-node-package",
@@ -35,18 +35,8 @@
       "dist/credentials/AncoreMateOAuth2Api.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/AncoreMateApps/AncoreMateApps.node.js",
-      "dist/nodes/AncoreMateReloads/AncoreMateReloads.node.js",
-      "dist/nodes/AncoreMateAppData/AncoreMateAppData.node.js",
-      "dist/nodes/AncoreMateSpacesAndAccess/AncoreMateSpacesAndAccess.node.js",
-      "dist/nodes/AncoreMateContent/AncoreMateContent.node.js",
-      "dist/nodes/AncoreMateCatalog/AncoreMateCatalog.node.js",
-      "dist/nodes/AncoreMateAutomations/AncoreMateAutomations.node.js",
-      "dist/nodes/AncoreShare/AncoreShare.node.js",
-      "dist/nodes/AncoreMateAppsTrigger/AncoreMateAppsTrigger.node.js",
-      "dist/nodes/AncoreMateReloadsTrigger/AncoreMateReloadsTrigger.node.js",
-      "dist/nodes/AncoreMateAutomationsTrigger/AncoreMateAutomationsTrigger.node.js",
-      "dist/nodes/AncoreShareTrigger/AncoreShareTrigger.node.js"
+      "dist/nodes/AncoreMate/AncoreMate.node.js",
+      "dist/nodes/AncoreMateTrigger/AncoreMateTrigger.node.js"
     ]
   },
   "devDependencies": {
