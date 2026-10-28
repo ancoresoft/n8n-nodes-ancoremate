@@ -478,13 +478,16 @@ export async function loadOptions(
 	collection: string,
 	valuePath: string,
 	titlePath: string,
+	optional = false,
 ): Promise<INodePropertyOptions[]> {
+	// An optional field can stay empty; without this entry n8n marks the empty value as not supported.
+	const none: INodePropertyOptions[] = optional ? [{ name: '(Not Set)', value: '' }] : [];
 	// Values of other fields (for example the chosen app) go into the path or the query.
 	const query: IDataObject = { ...qs };
 	for (const [name, parameter] of Object.entries(references)) {
 		const value = this.getCurrentNodeParameter(parameter);
 		if (isEmpty(value)) {
-			return [];
+			return none;
 		}
 		if (path.includes(`{${name}}`)) {
 			path = path.replace(`{${name}}`, encodeURIComponent(String(value)));
@@ -505,12 +508,12 @@ export async function loadOptions(
 		throw new NodeOperationError(this.getNode(), (error as Error).message);
 	}
 	const entries = ((response?.[collection] as IDataObject[] | undefined) ?? []);
-	return entries
+	return none.concat(entries
 		.map((entry) => ({
 			name: titlePath === valuePath || String(entry[titlePath]).includes(String(entry[valuePath]))
 				? String(entry[titlePath])
 				: `${String(entry[titlePath])} (${String(entry[valuePath])})`,
 			value: String(entry[valuePath]),
 		}))
-		.sort((left, right) => left.name.localeCompare(right.name));
+		.sort((left, right) => left.name.localeCompare(right.name)));
 }

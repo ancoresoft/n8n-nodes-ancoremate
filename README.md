@@ -58,7 +58,7 @@ The package has two nodes: **ancoreMate** for all actions and **ancoreMate Trigg
 
 ## Documentation and support
 
-- Documentation: https://docs.ancoresoft.com/
+- Documentation: https://ancoresoft.com/help/ancoremate/get-started/n8n
 - Support: support@ancoresoft.com
 - Qlik Cloud REST API: https://qlik.dev/apis/
 

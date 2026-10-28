@@ -6,15 +6,23 @@
     "Analytics",
     "Data & Storage"
   ],
+  "alias": [
+    "Qlik",
+    "Qlik Cloud",
+    "Qlik Sense",
+    "ancoreShare",
+    "Reload",
+    "Analytics"
+  ],
   "resources": {
     "credentialDocumentation": [
       {
-        "url": "https://docs.ancoresoft.com/"
+        "url": "https://ancoresoft.com/help/ancoremate/get-started/n8n"
       }
     ],
     "primaryDocumentation": [
       {
-        "url": "https://docs.ancoresoft.com/"
+        "url": "https://ancoresoft.com/help/ancoremate/get-started/n8n"
       }
     ]
   }

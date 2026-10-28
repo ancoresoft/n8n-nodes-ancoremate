@@ -11,7 +11,7 @@ import { NodeConnectionTypes } from 'n8n-workflow';
 import { loadOptions, runOperations, type OperationSpec } from '../shared/runtime';
 
 const BASE_URL = 'https://ancorecloud.com/ancoremate';
-const CLIENT = 'n8n/1.24.0';
+const CLIENT = 'n8n/1.24.1';
 
 const OPERATIONS: Record<string, OperationSpec> = {
 	"changeAppOwner": {
@@ -5389,6 +5389,32 @@ export class AncoreMate implements INodeType {
 		"defaults": {
 			"name": "ancoreMate"
 		},
+		"codex": {
+			"categories": [
+				"Analytics",
+				"Data & Storage"
+			],
+			"alias": [
+				"Qlik",
+				"Qlik Cloud",
+				"Qlik Sense",
+				"ancoreShare",
+				"Reload",
+				"Analytics"
+			],
+			"resources": {
+				"credentialDocumentation": [
+					{
+						"url": "https://ancoresoft.com/help/ancoremate/get-started/n8n"
+					}
+				],
+				"primaryDocumentation": [
+					{
+						"url": "https://ancoresoft.com/help/ancoremate/get-started/n8n"
+					}
+				]
+			}
+		},
 		"usableAsTool": true,
 		"inputs": [NodeConnectionTypes.Main],
 		"outputs": [NodeConnectionTypes.Main],
@@ -7942,7 +7968,7 @@ export class AncoreMate implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -9379,7 +9405,7 @@ export class AncoreMate implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAppChoicesResourceId"
+					"loadOptionsMethod": "loadListAppChoicesResourceIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -13570,7 +13596,7 @@ export class AncoreMate implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpacesId"
+					"loadOptionsMethod": "loadListSpacesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -15115,7 +15141,7 @@ export class AncoreMate implements INodeType {
 				"name": "dataFileConnectionId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListDataFileConnectionsId"
+					"loadOptionsMethod": "loadListDataFileConnectionsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -15342,7 +15368,7 @@ export class AncoreMate implements INodeType {
 				"name": "dataFileConnectionId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListDataFileConnectionsId"
+					"loadOptionsMethod": "loadListDataFileConnectionsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -15452,7 +15478,7 @@ export class AncoreMate implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -15559,7 +15585,7 @@ export class AncoreMate implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -15676,7 +15702,7 @@ export class AncoreMate implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -15877,7 +15903,7 @@ export class AncoreMate implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -16856,7 +16882,7 @@ export class AncoreMate implements INodeType {
 				"name": "dataFileConnectionId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListDataFileConnectionsId"
+					"loadOptionsMethod": "loadListDataFileConnectionsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -16946,7 +16972,7 @@ export class AncoreMate implements INodeType {
 						"name": "dataFileId",
 						"type": "options",
 						"typeOptions": {
-							"loadOptionsMethod": "loadListDataFilesId"
+							"loadOptionsMethod": "loadListDataFilesIdOptional"
 						},
 						"default": "",
 						"description": "The data file to replace, also under another name. Leave empty to upload by name."
@@ -20988,7 +21014,7 @@ export class AncoreMate implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAppChoicesResourceId"
+					"loadOptionsMethod": "loadListAppChoicesResourceIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -21008,7 +21034,7 @@ export class AncoreMate implements INodeType {
 				"name": "reportId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAncoreShareReportsId",
+					"loadOptionsMethod": "loadListAncoreShareReportsIdOptional",
 					"loadOptionsDependsOn": [
 						"appId"
 					]
@@ -21094,7 +21120,7 @@ export class AncoreMate implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAppChoicesResourceId"
+					"loadOptionsMethod": "loadListAppChoicesResourceIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -21114,7 +21140,7 @@ export class AncoreMate implements INodeType {
 				"name": "reportId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAncoreShareReportsId",
+					"loadOptionsMethod": "loadListAncoreShareReportsIdOptional",
 					"loadOptionsDependsOn": [
 						"appId"
 					]
@@ -21398,80 +21424,158 @@ export class AncoreMate implements INodeType {
 			async loadGetAppsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadGetAppsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListAncoreShareReportsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/ancoreshare/apps/{appId}/reports', {}, {"appId":"appId"}, 'value', 'id', 'title');
+			},
+			async loadListAncoreShareReportsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/ancoreshare/apps/{appId}/reports', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
 			},
 			async loadListAppChoicesResourceId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/app-choices', {"limit":1000}, {}, 'value', 'resourceId', 'name');
 			},
+			async loadListAppChoicesResourceIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/app-choices', {"limit":1000}, {}, 'value', 'resourceId', 'name', true);
+			},
 			async loadListAutomationConnectionsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/automation-connections', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListAutomationConnectionsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/automation-connections', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListAutomationsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/automations', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadListAutomationsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/automations', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListBookmarksId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/bookmarks', {}, {"appId":"appId"}, 'value', 'id', 'title');
+			},
+			async loadListBookmarksIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/bookmarks', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
 			},
 			async loadListChangeStoresStoreId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/change-stores', {"limit":1000}, {"spaceId":"spaceId"}, 'value', 'storeId', 'storeName');
 			},
+			async loadListChangeStoresStoreIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/change-stores', {"limit":1000}, {"spaceId":"spaceId"}, 'value', 'storeId', 'storeName', true);
+			},
 			async loadListDataConnectionsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-connections', {"limit":1000}, {}, 'value', 'id', 'qName');
+			},
+			async loadListDataConnectionsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-connections', {"limit":1000}, {}, 'value', 'id', 'qName', true);
 			},
 			async loadListDataFileConnectionsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-file-connections', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadListDataFileConnectionsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-file-connections', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListDataFilesId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-files', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListDataFilesIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-files', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListDataObjectsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/data-objects', {}, {"appId":"appId"}, 'value', 'id', 'title');
 			},
+			async loadListDataObjectsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/data-objects', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
+			},
 			async loadListDataStoresId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-stores', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListDataStoresIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/data-stores', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListDimensionsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/dimensions', {}, {"appId":"appId"}, 'value', 'id', 'title');
 			},
+			async loadListDimensionsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/dimensions', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
+			},
 			async loadListGlossariesId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/glossaries', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListGlossariesIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/glossaries', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListGroupsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/groups', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadListGroupsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/groups', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListItemsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/items', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListItemsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/items', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListMeasuresId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/measures', {}, {"appId":"appId"}, 'value', 'id', 'title');
 			},
+			async loadListMeasuresIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/measures', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
+			},
 			async loadListReloadTasksId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/reload-tasks', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListReloadTasksIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/reload-tasks', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListReloadVariableChoicesName(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/reload-variables', {}, {"appId":"appId"}, 'value', 'name', 'title');
 			},
+			async loadListReloadVariableChoicesNameOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/reload-variables', {}, {"appId":"appId"}, 'value', 'name', 'title', true);
+			},
 			async loadListReportTemplatesId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/report-templates', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListReportTemplatesIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/report-templates', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListScriptsResourceId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/scripts', {"limit":1000}, {}, 'value', 'resourceId', 'name');
 			},
+			async loadListScriptsResourceIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/scripts', {"limit":1000}, {}, 'value', 'resourceId', 'name', true);
+			},
 			async loadListSheetsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/sheets', {}, {"appId":"appId"}, 'value', 'id', 'title');
+			},
+			async loadListSheetsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/sheets', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
 			},
 			async loadListSpaceChoicesId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/space-choices', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadListSpaceChoicesIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/space-choices', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListSpacesId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/spaces', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListSpacesIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/spaces', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 			async loadListUsersId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/users', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadListUsersIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/users', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListVariablesName(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/variables', {}, {"appId":"appId"}, 'value', 'name', 'name');
+			},
+			async loadListVariablesNameOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps/{appId}/variables', {}, {"appId":"appId"}, 'value', 'name', 'name', true);
 			},
 		},
 	};

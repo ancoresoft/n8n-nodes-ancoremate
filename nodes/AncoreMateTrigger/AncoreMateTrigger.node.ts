@@ -12,7 +12,7 @@ import { NodeConnectionTypes } from 'n8n-workflow';
 import { createSubscription, deleteSubscription, eventData, loadOptions, type TriggerSpec } from '../shared/runtime';
 
 const BASE_URL = 'https://ancorecloud.com/ancoremate';
-const CLIENT = 'n8n/1.24.0';
+const CLIENT = 'n8n/1.24.1';
 
 const EVENTS: Record<string, TriggerSpec> = {
 	"whenAppCreated": {
@@ -119,6 +119,32 @@ export class AncoreMateTrigger implements INodeType {
 		"defaults": {
 			"name": "ancoreMate Trigger"
 		},
+		"codex": {
+			"categories": [
+				"Analytics",
+				"Data & Storage"
+			],
+			"alias": [
+				"Qlik",
+				"Qlik Cloud",
+				"Qlik Sense",
+				"ancoreShare",
+				"Reload",
+				"Analytics"
+			],
+			"resources": {
+				"credentialDocumentation": [
+					{
+						"url": "https://ancoresoft.com/help/ancoremate/get-started/n8n"
+					}
+				],
+				"primaryDocumentation": [
+					{
+						"url": "https://ancoresoft.com/help/ancoremate/get-started/n8n"
+					}
+				]
+			}
+		},
 		"inputs": [],
 		"outputs": [NodeConnectionTypes.Main],
 		"credentials": [
@@ -145,61 +171,73 @@ export class AncoreMateTrigger implements INodeType {
 				"options": [
 					{
 						"name": "When an ancoreShare report is finished",
+						"action": "When an ancoreShare report is finished",
 						"value": "whenAncoreShareReportFinished",
 						"description": "Starts when a report button with ancoreMate event enabled has finished a report in the tenant of the connection, run by a user or through ancoreShare External Execution. With Include the report files the files come along as Attachments, ready for a mail."
 					},
 					{
 						"name": "When an app is created",
+						"action": "When an app is created",
 						"value": "whenAppCreated",
 						"description": "Starts when an app is created."
 					},
 					{
 						"name": "When an app is exported",
+						"action": "When an app is exported",
 						"value": "whenAppExported",
 						"description": "Starts when an app is exported."
 					},
 					{
 						"name": "When an app is published",
+						"action": "When an app is published",
 						"value": "whenAppPublished",
 						"description": "Starts when an app is published to a managed space."
 					},
 					{
 						"name": "When an app reload finishes",
+						"action": "When an app reload finishes",
 						"value": "whenAppReloadFinished",
 						"description": "Starts when a reload of an app finishes, successfully or with an error."
 					},
 					{
 						"name": "When an automation is created",
+						"action": "When an automation is created",
 						"value": "whenAutomationCreated",
 						"description": "Starts when an automation is created."
 					},
 					{
 						"name": "When an automation is deleted",
+						"action": "When an automation is deleted",
 						"value": "whenAutomationDeleted",
 						"description": "Starts when an automation is deleted."
 					},
 					{
 						"name": "When an automation is updated",
+						"action": "When an automation is updated",
 						"value": "whenAutomationUpdated",
 						"description": "Starts when an automation is changed."
 					},
 					{
 						"name": "When an automation run ends",
+						"action": "When an automation run ends",
 						"value": "whenAutomationRunEnded",
 						"description": "Starts when a run of an automation ends."
 					},
 					{
 						"name": "When an automation run fails",
+						"action": "When an automation run fails",
 						"value": "whenAutomationRunFailed",
 						"description": "Starts when a run of an automation fails."
 					},
 					{
 						"name": "When an automation run starts",
+						"action": "When an automation run starts",
 						"value": "whenAutomationRunStarted",
 						"description": "Starts when a run of an automation starts."
 					},
 					{
 						"name": "When the data model of an app changes",
+						"action": "When the data model of an app changes",
 						"value": "whenAppDataUpdated",
 						"description": "Starts when the data model of an app is updated, for example by a reload with changed tables."
 					}
@@ -240,7 +278,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAppChoicesResourceId"
+					"loadOptionsMethod": "loadListAppChoicesResourceIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -257,7 +295,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "reportId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAncoreShareReportsId",
+					"loadOptionsMethod": "loadListAncoreShareReportsIdOptional",
 					"loadOptionsDependsOn": [
 						"appId"
 					]
@@ -277,7 +315,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -294,7 +332,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadGetAppsId"
+					"loadOptionsMethod": "loadGetAppsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -311,7 +349,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -328,7 +366,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadGetAppsId"
+					"loadOptionsMethod": "loadGetAppsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -345,7 +383,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -362,7 +400,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAppChoicesResourceId"
+					"loadOptionsMethod": "loadListAppChoicesResourceIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -379,7 +417,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -424,7 +462,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -441,7 +479,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "automationId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAutomationsId"
+					"loadOptionsMethod": "loadListAutomationsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -458,7 +496,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -475,7 +513,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "automationId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAutomationsId"
+					"loadOptionsMethod": "loadListAutomationsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -492,7 +530,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -509,7 +547,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "automationId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAutomationsId"
+					"loadOptionsMethod": "loadListAutomationsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -526,7 +564,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -543,7 +581,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "automationId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAutomationsId"
+					"loadOptionsMethod": "loadListAutomationsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -560,7 +598,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -577,7 +615,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "automationId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListAutomationsId"
+					"loadOptionsMethod": "loadListAutomationsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -594,7 +632,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -611,7 +649,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "appId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadGetAppsId"
+					"loadOptionsMethod": "loadGetAppsIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -628,7 +666,7 @@ export class AncoreMateTrigger implements INodeType {
 				"name": "spaceId",
 				"type": "options",
 				"typeOptions": {
-					"loadOptionsMethod": "loadListSpaceChoicesId"
+					"loadOptionsMethod": "loadListSpaceChoicesIdOptional"
 				},
 				"default": "",
 				"displayOptions": {
@@ -648,17 +686,32 @@ export class AncoreMateTrigger implements INodeType {
 			async loadGetAppsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadGetAppsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/apps', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListAncoreShareReportsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/ancoreshare/apps/{appId}/reports', {}, {"appId":"appId"}, 'value', 'id', 'title');
+			},
+			async loadListAncoreShareReportsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/ancoreshare/apps/{appId}/reports', {}, {"appId":"appId"}, 'value', 'id', 'title', true);
 			},
 			async loadListAppChoicesResourceId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/app-choices', {"limit":1000}, {}, 'value', 'resourceId', 'name');
 			},
+			async loadListAppChoicesResourceIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/app-choices', {"limit":1000}, {}, 'value', 'resourceId', 'name', true);
+			},
 			async loadListAutomationsId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/automations', {"limit":1000}, {}, 'value', 'id', 'name');
 			},
+			async loadListAutomationsIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/automations', {"limit":1000}, {}, 'value', 'id', 'name', true);
+			},
 			async loadListSpaceChoicesId(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
 				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/space-choices', {"limit":1000}, {}, 'value', 'id', 'name');
+			},
+			async loadListSpaceChoicesIdOptional(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+				return loadOptions.call(this, BASE_URL, CLIENT, '/v1/space-choices', {"limit":1000}, {}, 'value', 'id', 'name', true);
 			},
 		},
 	};

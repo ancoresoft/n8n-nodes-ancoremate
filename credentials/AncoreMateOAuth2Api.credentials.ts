@@ -14,7 +14,7 @@ export class AncoreMateOAuth2Api implements ICredentialType {
 
 	icon: Icon = { light: 'file:ancoremate.svg', dark: 'file:ancoremate.dark.svg' };
 
-	documentationUrl = 'https://docs.ancoresoft.com/';
+	documentationUrl = 'https://ancoresoft.com/help/ancoremate/get-started/n8n';
 
 	properties: INodeProperties[] = [
 		{
@@ -75,7 +75,7 @@ export class AncoreMateOAuth2Api implements ICredentialType {
 			"baseURL": "https://ancorecloud.com/ancoremate",
 			"url": "/v1/connection",
 			"headers": {
-				"X-AncoreMate-Client": "n8n/1.24.0"
+				"X-AncoreMate-Client": "n8n/1.24.1"
 			}
 		}
 	};
