@@ -12,7 +12,7 @@ import { NodeConnectionTypes } from 'n8n-workflow';
 import { createSubscription, deleteSubscription, eventData, loadOptions, type TriggerSpec } from '../shared/runtime';
 
 const BASE_URL = 'https://ancorecloud.com/ancoremate';
-const CLIENT = 'n8n/1.24.1';
+const CLIENT = 'n8n/1.25.11';
 
 const EVENTS: Record<string, TriggerSpec> = {
 	"whenAppCreated": {
